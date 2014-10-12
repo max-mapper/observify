@@ -13,3 +13,26 @@ npm install observify
 ```
 
 ## usage
+
+```js
+var observify = require('observify')
+var data = observify({
+  "foo": "bar",
+  "cats": ["taco", "burrito"],
+  "age": 82
+})
+```
+
+is equivalent to doing:
+
+```js
+var array = require('observ-array')
+var struct = require('observ-struct')
+var value = require('observ')
+
+var data = struct({
+  "foo": value("bar"),
+  "cats": array([value("taco"), value("burrito")]),
+  "age": value(82)
+})
+```
