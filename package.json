@@ -1,0 +1,30 @@
+{
+  "name": "observify",
+  "version": "1.0.0",
+  "description": "converts JS objects into their observable equivalents using observ",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "mercury"
+  ],
+  "author": "max ogden",
+  "license": "BSD",
+  "devDependencies": {
+    "tape": "^3.0.0"
+  },
+  "dependencies": {
+    "observ": "^0.2.0",
+    "observ-array": "^3.0.0",
+    "observ-struct": "^6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/maxogden/observify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maxogden/observify/issues"
+  },
+  "homepage": "https://github.com/maxogden/observify"
+}
