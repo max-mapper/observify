@@ -35,6 +35,6 @@ function isArray(obj) {
 
 // remember, typeof [] will return 'object' so check isArray first before using this method
 function isObject(obj) {
-  if (typeof obj === 'object') return true
+  if (typeof obj === 'object' && obj !== null) return true
   else return false
 }

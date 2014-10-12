@@ -30,6 +30,15 @@ test('simple object with number values', function(t) {
   t.end()
 })
 
+test('simple object with null', function(t) {
+  var o = observify({
+    a: null
+  })
+
+  t.equal(o.a(), null)
+  t.end()
+})
+
 test('complex nested object', function(t) {
   var data = {
     "_rev": "467-3c760832d52731ea8f34f18ef0a01207",
