@@ -1,6 +1,6 @@
 {
   "name": "observify",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "converts JS objects into their observable equivalents using observ",
   "main": "index.js",
   "scripts": {
