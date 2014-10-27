@@ -36,3 +36,32 @@ var data = struct({
   "age": value(82)
 })
 ```
+
+## blacklisted properties
+
+`observ-struct` has a [blacklist](https://github.com/Raynos/observ-struct/blob/master/index.js) of property names that cannot be used as keys (as they clash with javascript reserved words).
+
+You can pass an options object with a `autoRename` property to tell observify to rename these properties.
+
+```js
+var observify = require('observify')
+var data = observify({
+  "name":"I'm bad, I'm bad, you know it",
+  "comment":"I am OK"
+}, {
+	autoRename:'$'
+})
+
+console.log(data())
+```
+
+This would print:
+
+```js
+{
+	$name:"I'm bad, I'm bad, you know it",
+	comment:"I am OK"
+}
+```
+
+If `autoRename` is true it will default to `$`.
