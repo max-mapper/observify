@@ -30,7 +30,7 @@ function createArray(obj) {
 function createObject(obj, opts) {
   opts = opts || {}
   var autoRename = opts.autoRename
-  if(autoRename && typeof(autoRename)=='boolean') autoRename = '$'
+  if(autoRename && typeof autoRename === 'boolean') autoRename = '$'
   var data = {}
   Object.keys(obj).forEach(function(key) {
     var val = obj[key]

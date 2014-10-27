@@ -49,7 +49,7 @@ var data = observify({
   "name":"I'm bad, I'm bad, you know it",
   "comment":"I am OK"
 }, {
-	autoRename:'$'
+  autoRename:'$'
 })
 
 console.log(data())
@@ -59,8 +59,8 @@ This would print:
 
 ```js
 {
-	$name:"I'm bad, I'm bad, you know it",
-	comment:"I am OK"
+  $name:"I'm bad, I'm bad, you know it",
+  comment:"I am OK"
 }
 ```
 
