@@ -2,10 +2,19 @@ var array = require('observ-array')
 var struct = require('observ-struct')
 var value = require('observ')
 
-module.exports = function(obj) {
+// we could get this exposed from observ-struct
+var blackList = {
+  "length": true,
+  "name": true,
+  "_diff": true,
+  "_type": true,
+  "_version": true
+}
+
+module.exports = function(obj, opts) {
   var result
   if (isArray(obj)) result = createArray(obj)
-  else if (isObject(obj)) result = createObject(obj)
+  else if (isObject(obj)) result = createObject(obj, opts)
   else result = value(obj)
   return result
 }
@@ -18,13 +27,17 @@ function createArray(obj) {
   }))
 }
 
-function createObject(obj) {
+function createObject(obj, opts) {
+  opts = opts || {}
+  var autoRename = opts.autoRename
+  if(autoRename && typeof(autoRename)=='boolean') autoRename = '$'
   var data = {}
   Object.keys(obj).forEach(function(key) {
     var val = obj[key]
-    if (isArray(val)) return data[key] = createArray(val)
-    if (isObject(val)) return data[key] = createObject(val)
-    return data[key] = value(val)
+    var writeKey = blackList[key] && autoRename ? autoRename + key : key
+    if (isArray(val)) return data[writeKey] = createArray(val)
+    if (isObject(val)) return data[writeKey] = createObject(val, opts)
+    return data[writeKey] = value(val)
   })
   return struct(data)
 }

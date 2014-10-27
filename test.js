@@ -91,3 +91,31 @@ test('complex nested object', function(t) {
   t.equal(o.versions['0.10.0'].tags.get(0)(), 'http')
   t.end()
 })
+
+test('rename blacklisted names', function(t){
+  var data = {
+    "name":"I'm bad, I'm bad, you know it",
+    "comment":"I am OK",
+    "_version":{
+      "length":3.14,
+      "_diff":"Not likely key"
+    }
+  }
+  var o = observify(data, {
+    autoRename:true
+  })
+  t.equal(o.$name(), "I'm bad, I'm bad, you know it")
+  t.equal(o.comment(), 'I am OK')
+  t.equal(o.$_version.$length(), 3.14)
+
+  var customData = {
+    "name":"daffy"
+  }
+
+  var o2 = observify(customData, {
+    autoRename:'duck'
+  })
+
+  t.equal(o2.duckname(), 'daffy')
+  t.end()
+})
