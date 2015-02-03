@@ -119,3 +119,18 @@ test('rename blacklisted names', function(t){
   t.equal(o2.duckname(), 'daffy')
   t.end()
 })
+
+test('use varhash instead of struct', function(t) {
+  var o = observify({
+    a: 1
+  }, {
+    objectConstructor: require('observ-varhash')
+  })
+
+  t.equal(o.a(), 1)
+
+  o.put('b', 2)
+  t.equal(o.a(), 1)
+
+  t.end()
+})
