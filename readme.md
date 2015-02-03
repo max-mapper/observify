@@ -65,3 +65,21 @@ This would print:
 ```
 
 If `autoRename` is true it will default to `$`.
+
+## custom object contstructor
+
+By default `observify` will use `observ-struct`, but if you want to use a different constructor for objects like [observ-varhash](https://github.com/nrw/observ-varhash) you can pass it in as an object:
+
+```js
+var data = observify({
+  originalKey: 1
+}, {
+  objectConstructor: require('observ-varhash')
+})
+
+// add a key!
+data.put('newKey', 2)
+
+// remove a key!
+data.delete('newKey')
+```

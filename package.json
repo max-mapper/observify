@@ -12,6 +12,7 @@
   "author": "max ogden",
   "license": "BSD",
   "devDependencies": {
+    "observ-varhash": "^1.0.4",
     "tape": "^3.0.0"
   },
   "dependencies": {

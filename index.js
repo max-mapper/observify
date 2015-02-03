@@ -31,6 +31,7 @@ function createObject(obj, opts) {
   opts = opts || {}
   var autoRename = opts.autoRename
   if(autoRename && typeof autoRename === 'boolean') autoRename = '$'
+  var objectConstructor = opts.objectConstructor || struct
   var data = {}
   Object.keys(obj).forEach(function(key) {
     var val = obj[key]
@@ -39,7 +40,7 @@ function createObject(obj, opts) {
     if (isObject(val)) return data[writeKey] = createObject(val, opts)
     return data[writeKey] = value(val)
   })
-  return struct(data)
+  return objectConstructor(data)
 }
 
 function isArray(obj) {
