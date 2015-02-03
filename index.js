@@ -1,5 +1,5 @@
 var array = require('observ-array')
-var struct = require('observ-struct')
+var struct = require('observ-varhash')
 var value = require('observ')
 
 // we could get this exposed from observ-struct

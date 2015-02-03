@@ -17,7 +17,7 @@
   "dependencies": {
     "observ": "^0.2.0",
     "observ-array": "^3.0.0",
-    "observ-struct": "^6.0.0"
+    "observ-varhash": "^1.0.4"
   },
   "repository": {
     "type": "git",
