@@ -13,16 +13,16 @@ var blackList = {
 
 module.exports = function(obj, opts) {
   var result
-  if (isArray(obj)) result = createArray(obj)
+  if (isArray(obj)) result = createArray(obj, opts)
   else if (isObject(obj)) result = createObject(obj, opts)
   else result = value(obj)
   return result
 }
 
-function createArray(obj) {
+function createArray(obj, opts) {
   return array(obj.map(function(el) {
-    if (isArray(el)) return createArray(el)
-    if (isObject(el)) return createObject(el)
+    if (isArray(el)) return createArray(el, opts)
+    if (isObject(el)) return createObject(el, opts)
     return value(el)
   }))
 }

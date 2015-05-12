@@ -117,6 +117,16 @@ test('rename blacklisted names', function(t){
   })
 
   t.equal(o2.duckname(), 'daffy')
+
+  var arrData = [
+    {"name":"batman"}
+  ]
+
+  var o3 = observify(arrData, {
+    autoRename:true
+  })
+
+  t.equal(o3.get(0).$name(), 'batman')
   t.end()
 })
 
