@@ -127,6 +127,18 @@ test('rename blacklisted names', function(t){
   })
 
   t.equal(o3.get(0).$name(), 'batman')
+
+
+  var nameInsideArray = {
+    "arr": [ { "name": "robin" } ]
+  }
+
+  var o4 = observify(nameInsideArray, {
+    autoRename:true
+  })
+
+  t.equal(o4.arr.get(0).$name(), 'robin')
+
   t.end()
 })
 
