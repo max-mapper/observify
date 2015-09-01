@@ -36,7 +36,7 @@ function createObject(obj, opts) {
   Object.keys(obj).forEach(function(key) {
     var val = obj[key]
     var writeKey = blackList[key] && autoRename ? autoRename + key : key
-    if (isArray(val)) return data[writeKey] = createArray(val)
+    if (isArray(val)) return data[writeKey] = createArray(val, opts)
     if (isObject(val)) return data[writeKey] = createObject(val, opts)
     return data[writeKey] = value(val)
   })
