@@ -19,6 +19,7 @@ var observify = require('observify')
 var data = observify({
   "foo": "bar",
   "cats": ["taco", "burrito"],
+  "object": { key: 'value' },
   "age": 82
 })
 ```
@@ -33,6 +34,7 @@ var value = require('observ')
 var data = struct({
   "foo": value("bar"),
   "cats": array([value("taco"), value("burrito")]),
+  "object": struct({ key: 'value' }),
   "age": value(82)
 })
 ```
